@@ -1,7 +1,7 @@
 {
-  "name": "Download Selected Links",
+  "name": "vkmp3list",
   "version": "1",
-  "description": "Select links on a page and download them.",
+  "description": "allow to get list of mp3 files on vk.com",
   "minimum_chrome_version": "16.0.884",
   "permissions": ["downloads", "<all_urls>"],
   "browser_action": {"default_popup": "popup.html"},
