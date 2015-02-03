@@ -1,0 +1,15 @@
+div#dButton {
+display: block;
+color: #2B587A;
+max-width: 156px;
+cursor: pointer;
+position: relative;
+}
+div#dButton div.label{
+	max-width: 121px;
+overflow: hidden;
+-o-text-overflow: ellipsis;
+text-overflow: ellipsis;
+white-space: nowrap;
+padding: 6px 24px 7px 11px;
+}
