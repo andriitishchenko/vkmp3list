@@ -33,13 +33,13 @@ $("<div/>", {
 				}
 			});
 
-			// var tmpData = ttFLNMList.join("\n");
-			// var ttFLNMArray = location.search.match(new RegExp("([?&]q=)([^&]*)"));
-			// var lst = document.createElement('a');
-			// lst.setAttribute('data-auto-download', '1');
-			// lst.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(tmpData));
-			// lst.setAttribute('download', decodeURIComponent(ttFLNMArray[2]));
-			// lst.click();
+			var tmpData = ttFLNMList.join("\n");
+			var ttFLNMArray = location.search.match(new RegExp("([?&]q=)([^&]*)"));
+			var lst = document.createElement('a');
+			lst.setAttribute('data-auto-download', '1');
+			lst.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(tmpData));
+			lst.setAttribute('download', decodeURIComponent(ttFLNMArray[2]));
+			lst.click();
 
       }
 }).appendTo(dButton);
