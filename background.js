@@ -18,7 +18,6 @@ setTimeout(function(){
 			lst.setAttribute('data-auto-download', '1');
 			lst.setAttribute('href','data:audio/mpeg3,' + encodeURIComponent(link))
 			lst.setAttribute('download', filename);
-			console.log(filename);
 			lst.click();
 		}
 
@@ -26,7 +25,6 @@ setTimeout(function(){
 		function vkmp3list_process_item(item)
 		{
 			var title = $("span.title", $(item)).text();
-
 			var singer = $(".area>.info>.title_wrap>b>a", $(item)).text();
 
 			//clear 
@@ -37,12 +35,7 @@ setTimeout(function(){
 			singer = (singer.replace(/([^%-\d\w\s\u0400-\u0457\(\)])|(\s{2,})/gi,'')).trim();
 			title = (title.replace(/([^%-\d\w\s\u0400-\u0457\(\)])|(\s{2,})/gi,'')).trim().substr(0, 35);
 
-			// singer = singer.replace( /([a-z])([A-Z])/g, "$1 $2");
-			// singer = singer.replace( /([\u0430-\u0457])([\u0400-\u042F])/g, "$1 $2");
-
-			var song ="" + singer+" - "+title;
-			// song = (song.replace(/([^%-\d\w\s\u0400-\u0457\(\)])|(\s{2,})/gi,'')).trim();
-			
+			var song ="" + singer+" - "+title;			
 			var param = "&/"+ decodeURIComponent(song)+".mp3";
 
 			var link = ""+$("input[id^='audio_info']", $(item)).attr('value');
@@ -54,10 +47,8 @@ setTimeout(function(){
 		{
 			var item = $(sender).parents("div.audio[id^='audio']");
 			var link = vkmp3list_process_item(item);
-			console.log(link);
 			var song = link.replace(/[^]*&\//g,'');
 			vkmp3file_download(link,song);
-			
 		}
 
 		var dButton=document.createElement('div');
@@ -105,4 +96,3 @@ setTimeout(function(){
 
 
 });
-// console.log("INJECTED");
