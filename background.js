@@ -25,7 +25,8 @@ $("<div/>", {
 				var key = song.toLowerCase().replace(/(\s+)/gi,'');
 				if (!(ttFLNMListUnique.indexOf(key) > -1)) {
 					ttFLNMListUnique.push(key);
-					var param = "&/"+ encodeURIComponent(song)+".mp3";
+					// var param = "&/"+ encodeURIComponent(song)+".mp3";
+					var param = "&/"+ decodeURIComponent(song)+".mp3";
 					var link = ""+$("input[id^='audio_info']", $(this)).attr('value');
 					link=link.replace(/,\d.+/g,param);
 					ttFLNMList.push(link);
@@ -46,4 +47,4 @@ $("<div/>", {
 
 $("div#album_filters").append(dButton);
 });
-console.log("INJECTED");
+// console.log("INJECTED");
