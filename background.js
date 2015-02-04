@@ -1,6 +1,22 @@
 
 $(document).ready(function() {
 
+// $(document).bind('domChanged', function(){
+//    console.log("test");
+// });
+
+
+
+// $(document).bind('DOMNodeInserted DOMNodeRemoved', function() {
+// console.log("DOMNodeInserted DOMNodeRemoved");
+// });
+
+// $("div#search_list").bind("DOMSubtreeModified",function(){
+//   console.log("DOMSubtreeModified search_list");
+// });
+
+
+
 setTimeout(function(){
 
 		function vkmp3list_download(link, filename)
@@ -25,7 +41,7 @@ setTimeout(function(){
 		function vkmp3list_process_item(item)
 		{
 			var title = $("span.title", $(item)).text();
-			var singer = $(".area>.info>.title_wrap>b>a", $(item)).text();
+			var singer = $(".area .info>.title_wrap>b>a", $(item)).text();
 
 			//clear 
 			singer = (singer.replace(/([^%-\d\w\s\u0400-\u0457\(\)])|(\s{2,})/gi,''));
@@ -79,18 +95,58 @@ setTimeout(function(){
 
 		$("div#album_filters").append(dButton);
 
-		var dButton2=document.createElement('div');
-		dButton2.setAttribute("class", "vkmp3listdl");
-		var dtriangle=document.createElement('div');
-		dtriangle.setAttribute("class", "arrow-down");
-		dButton2.appendChild(dtriangle);
+		var vkmp3listdlbtnSwitch = 0;
 
-		$(dButton2).bind( "click", function(e) {
-  			vkmp3list_download_process(this);
-  			e.preventDefault();
+		$(document).bind("DOMSubtreeModified",function(e){
+				if (vkmp3listdlbtnSwitch!=0) {
+					e.stopPropagation();
+					return;
+				};
+				$("div.play_btn_wrap:not(.vkmp3listdlbtn)").each(function(index) {
+					vkmp3listdlbtnSwitch = 1;
+					$(this).addClass( "vkmp3listdlbtn" );
+					var dButton2=document.createElement('div');
+					dButton2.setAttribute("class", "vkmp3listdl");
+					var dtriangle=document.createElement('div');
+					dtriangle.setAttribute("class", "arrow-down");
+					dButton2.appendChild(dtriangle);
+
+					$(dButton2).bind( "click", function(e) {
+						e.preventDefault();
+			  			vkmp3list_download_process(this);
+					});
+		        	$(this).append(dButton2);
+		        	console.log("ss");
+		    	})
+		    	.promise()
+		    	.done( function() {
+		        	vkmp3listdlbtnSwitch = 0;
+		        	console.log("UPDATES");
+		    	});
 		});
 
-		$("div.play_btn_wrap").append(dButton2);
+
+
+		// $("div.play_btn_wrap:not(:has(div.vkmp3listdl))").each(function(index) {
+
+		// 	var dButton2=document.createElement('div');
+		// 	dButton2.setAttribute("class", "vkmp3listdl");
+		// 	var dtriangle=document.createElement('div');
+		// 	dtriangle.setAttribute("class", "arrow-down");
+		// 	dButton2.appendChild(dtriangle);
+
+		// 	$(dButton2).bind( "click", function(e) {
+		// 		e.preventDefault();
+	 //  			vkmp3list_download_process(this);
+		// 	});
+  //       	$(this).append(dButton2);
+  //       	console.log("ss");
+
+  //   	});
+
+		// $("div.play_btn_wrap").append(dButton2);
+
+		// $("div.play_btn_wrap").append(dButton2);
 
 }, 3000);
 
