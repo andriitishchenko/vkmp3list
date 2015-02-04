@@ -13,3 +13,45 @@ text-overflow: ellipsis;
 white-space: nowrap;
 padding: 6px 24px 7px 11px;
 }
+
+.play_btn_wrap
+{
+	padding: 0;
+}
+.play_btn_wrap .play_new
+{
+    display: inline-block;
+}
+
+div.info.fl_l
+{
+	width: 370px !important;
+}
+
+#audio.new .audio .title_wrap {
+	width: 320px !important;
+}
+
+div.vkmp3listdl
+{
+cursor: pointer;
+width: 14px;
+height: 14px;
+/*background: url(/images/playpause.gif) no-repeat 0px 0px;*/
+display: inline-block;
+margin-left: 2px;
+border: 1px solid;
+border-radius: 2px;
+border-color: #45688E;
+}
+
+
+.arrow-down {
+	margin-top:5px; 
+	margin-left:1px; 
+	width: 0; 
+	height: 0; 
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;	
+	border-top: 6px solid #45688E;
+}
