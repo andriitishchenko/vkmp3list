@@ -32,6 +32,12 @@ div.info.fl_l
 #audio.new .audio .title_wrap {
 	width: 320px !important;
 }
+td.results .audio .title_wrap {
+	width: 350px !important;
+}
+.narrow_column .audio .title_wrap {
+width: 114px !important;
+}
 
 div.vkmp3listdl
 {

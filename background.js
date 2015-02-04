@@ -19,6 +19,36 @@ $(document).ready(function() {
 
 setTimeout(function(){
 
+
+// 	function downloadFile(){
+
+// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, 
+//     function onFileSystemSuccess(fileSystem) {
+//         fileSystem.root.getFile(
+//         "dummy.html", {create: true, exclusive: false}, 
+//         function gotFileEntry(fileEntry) {
+//             var sPath = fileEntry.fullPath.replace("dummy.html","");
+//             var fileTransfer = new FileTransfer();
+//             fileEntry.remove();
+
+//             fileTransfer.download(
+//                 "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
+//                 sPath + "theFile.pdf",
+//                 function(theFile) {
+//                     console.log("download complete: " + theFile.toURI());
+//                     showLink(theFile.toURI());
+//                 },
+//                 function(error) {
+//                     console.log("download error source " + error.source);
+//                     console.log("download error target " + error.target);
+//                     console.log("upload error code: " + error.code);
+//                 }
+//             );
+//         }, fail);
+//     }, fail);
+// };
+// }
+
 		function vkmp3list_download(link, filename)
 		{
 			var lst = document.createElement('a');
@@ -26,15 +56,27 @@ setTimeout(function(){
 			lst.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(link));
 			lst.setAttribute('download', decodeURIComponent(filename));
 			lst.click();
+			console.log(link);
 		}
 
 		function vkmp3file_download(link, filename)
 		{
+
 			var lst = document.createElement('a');
 			lst.setAttribute('data-auto-download', '1');
-			lst.setAttribute('href','data:audio/mpeg3,' + encodeURIComponent(link))
-			lst.setAttribute('download', filename);
+			// lst.setAttribute('href','data:audio/mpeg3,' + encodeURIComponent(link))
+			//lst.setAttribute('href',encodeURIComponent(link));
+
+			var l2 = link ;//+ "&?/"+ encodeURIComponent(filename);
+			lst.setAttribute('href',l2);
+			// lst.setAttribute('download', filename);
+			lst.setAttribute('download', decodeURIComponent(filename));
+			
 			lst.click();
+
+			console.log(filename);
+			console.log(link);
+			console.log(l2);
 		}
 
 
@@ -53,6 +95,7 @@ setTimeout(function(){
 
 			var song ="" + singer+" - "+title;			
 			var param = "&/"+ decodeURIComponent(song)+".mp3";
+			// var param = "&/"+ encodeURIComponent(song)+".mp3";
 
 			var link = ""+$("input[id^='audio_info']", $(item)).attr('value');
 			link=link.replace(/,\d.+/g,param);
@@ -64,6 +107,10 @@ setTimeout(function(){
 			var item = $(sender).parents("div.audio[id^='audio']");
 			var link = vkmp3list_process_item(item);
 			var song = link.replace(/[^]*&\//g,'');
+
+
+			link = link.replace(/&\/+.*/g,'');
+
 			vkmp3file_download(link,song);
 		}
 
@@ -121,7 +168,7 @@ setTimeout(function(){
 		    	.promise()
 		    	.done( function() {
 		        	vkmp3listdlbtnSwitch = 0;
-		        	console.log("UPDATES");
+		        	// console.log("UPDATES");
 		    	});
 		});
 
