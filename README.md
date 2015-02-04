@@ -1,5 +1,5 @@
 # vkmp3list
-Chrome extension for downloading mp3 list URLs
+Chrome extension for VK.COM what allow to get list of mp3 URLs on the "Search page"
 
 
 MAC OS X<br>

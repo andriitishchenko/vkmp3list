@@ -27,7 +27,7 @@
                 "background.js"
             ],
             "matches": [
-                "*://vk.com/audio?q=*"
+                "*://vk.com/audio?*"
             ]
         }
     ]
