@@ -19,36 +19,6 @@ $(document).ready(function() {
 
 setTimeout(function(){
 
-
-// 	function downloadFile(){
-
-// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, 
-//     function onFileSystemSuccess(fileSystem) {
-//         fileSystem.root.getFile(
-//         "dummy.html", {create: true, exclusive: false}, 
-//         function gotFileEntry(fileEntry) {
-//             var sPath = fileEntry.fullPath.replace("dummy.html","");
-//             var fileTransfer = new FileTransfer();
-//             fileEntry.remove();
-
-//             fileTransfer.download(
-//                 "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
-//                 sPath + "theFile.pdf",
-//                 function(theFile) {
-//                     console.log("download complete: " + theFile.toURI());
-//                     showLink(theFile.toURI());
-//                 },
-//                 function(error) {
-//                     console.log("download error source " + error.source);
-//                     console.log("download error target " + error.target);
-//                     console.log("upload error code: " + error.code);
-//                 }
-//             );
-//         }, fail);
-//     }, fail);
-// };
-// }
-
 		function vkmp3list_download(link, filename)
 		{
 			var lst = document.createElement('a');
@@ -171,29 +141,6 @@ setTimeout(function(){
 		        	// console.log("UPDATES");
 		    	});
 		});
-
-
-
-		// $("div.play_btn_wrap:not(:has(div.vkmp3listdl))").each(function(index) {
-
-		// 	var dButton2=document.createElement('div');
-		// 	dButton2.setAttribute("class", "vkmp3listdl");
-		// 	var dtriangle=document.createElement('div');
-		// 	dtriangle.setAttribute("class", "arrow-down");
-		// 	dButton2.appendChild(dtriangle);
-
-		// 	$(dButton2).bind( "click", function(e) {
-		// 		e.preventDefault();
-	 //  			vkmp3list_download_process(this);
-		// 	});
-  //       	$(this).append(dButton2);
-  //       	console.log("ss");
-
-  //   	});
-
-		// $("div.play_btn_wrap").append(dButton2);
-
-		// $("div.play_btn_wrap").append(dButton2);
 
 }, 3000);
 
