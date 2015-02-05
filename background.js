@@ -34,19 +34,9 @@ setTimeout(function(){
 
 			var lst = document.createElement('a');
 			lst.setAttribute('data-auto-download', '1');
-			// lst.setAttribute('href','data:audio/mpeg3,' + encodeURIComponent(link))
-			//lst.setAttribute('href',encodeURIComponent(link));
-
-			var l2 = link ;//+ "&?/"+ encodeURIComponent(filename);
-			lst.setAttribute('href',l2);
-			// lst.setAttribute('download', filename);
+			lst.setAttribute('href',link + "&?/"+ encodeURIComponent(filename));
 			lst.setAttribute('download', decodeURIComponent(filename));
-			
 			lst.click();
-
-			console.log(filename);
-			console.log(link);
-			console.log(l2);
 		}
 
 
@@ -133,12 +123,10 @@ setTimeout(function(){
 			  			vkmp3list_download_process(this);
 					});
 		        	$(this).append(dButton2);
-		        	console.log("ss");
 		    	})
 		    	.promise()
 		    	.done( function() {
 		        	vkmp3listdlbtnSwitch = 0;
-		        	// console.log("UPDATES");
 		    	});
 		});
 
