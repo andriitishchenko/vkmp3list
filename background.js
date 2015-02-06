@@ -94,9 +94,12 @@ setTimeout(function(){
 						}
 					});
 					var tmpData = ttFLNMList.join("\n");
-					
+					var filename = "newMP3List";
 					var ttFLNMArray = location.search.match(new RegExp("([?&]q=)([^&]*)"));
-					vkmp3list_download(tmpData,ttFLNMArray[2]);
+					if (ttFLNMArray!=null) {
+						filename = ttFLNMArray[2];
+					};
+					vkmp3list_download(tmpData,filename);
 		      }
 		}).appendTo(dButton);
 
