@@ -11,14 +11,22 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(ga, s);
 
-  var ga1 = document.createElement('script');
-  ga1.type = 'text/javascript';
-  ga1.async = true;
-  ga1.src = 'https://media.admob.com/api/v1/google_mobile_app_ads.js';
-  var s1 = document.getElementsByTagName('script')[0];
-  s1.parentNode.insertBefore(ga1, s1);
+//   var ga1 = document.createElement('script');
+//   ga1.setAttribute('nonce', 'Nc3n83cnSAd3wc3Sasdfn939hc3');
+//   ga1.type = 'text/javascript';
+//   ga1.async = true;
+//   //ga1.src = 'https://media.admob.com/api/v1/google_mobile_app_ads.js';
+//   ga1.src = '../google_mobile_app_ads.js';
+//   var s1 = document.getElementsByTagName('script')[0];
+//   s1.parentNode.insertBefore(ga1, s1);
 
 
+// document.write("<a id=\"AD\" href=\"http://andrux.info/monetize.html\"><img border=\"0\" src=\"ca-app-pub-8974053321305042/8033443213\" width=\"320\" height=\"100\"></a>");
+//     var button = document.getElementById('AD');
+//     button.onclick = function() {
+//       admob.opener.openUrl('%%CLICK_URL_ESC%%[FULLSCREEN_UNIT]', true); 
+//       return false;
+//     };
 })();
 
 function trackButtonClick(e) {
