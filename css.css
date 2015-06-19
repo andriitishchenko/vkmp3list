@@ -17,6 +17,7 @@ padding: 6px 24px 7px 11px;
 .play_btn_wrap
 {
 	padding: 0;
+	width: 34px !important;
 }
 .play_btn_wrap .play_new
 {
@@ -30,6 +31,12 @@ div.info.fl_l
 
 #audio.new .audio .title_wrap {
 	width: 320px !important;
+}
+td.results .audio .title_wrap {
+	width: 350px !important;
+}
+.narrow_column .audio .title_wrap {
+width: 114px !important;
 }
 
 div.vkmp3listdl

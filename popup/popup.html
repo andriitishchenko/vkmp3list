@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css"/>
+    <script src="popup.js"></script>
+  </head>
+  <br>
+  <ul>
+	<li>1. Get urls list</li>
+	<li>2. Download files from list</li>
+	<li>3. Have fun :)</li>
+</ul>
+<br>
+MAC OS X<br>
+<code>
+file_name=newMP3List.txt && cur_path=$(pwd) split -l 50 $file_name PARTDEF && find . -name "PARTDEF*" -print0 | xargs -0 -I f osascript -e "tell application \"Terminal\" to do script \" cd $cur_path && cat f | while read CMD; do curl -O  \\\"\$CMD\\\"; done; rm f;\" "
+</code>
+<br><br>Linux<br>
+<code>
+cat <FILE NAME HERE> | while read CMD; do curl -O $CMD; done;
+</code>
+<br><br>Windows<br> 
+<code>use any of Downloader  wich works with list of files</code>
+
+ <iframe src="http://andrux.info/monetize.html" width="320" height="100" align="left">
+    Ваш браузер не поддерживает плавающие фреймы!
+ </iframe>
+  </body>
+</html>

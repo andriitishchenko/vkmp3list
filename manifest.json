@@ -6,16 +6,24 @@
     "author": "AndruX",
     "permissions": [
         "downloads",
-        "<all_urls>"
+        "proxy", 
+        "webRequest", 
+        "webRequestBlocking", 
+        "\u003Call_urls>", 
+        "storage", 
+        "tabs", 
+        "webNavigation", 
+        "cookies"
     ],
     "manifest_version": 2,
-    "browser_action": {
-        "default_icon": "images/icon.png",
-        "icons": {
+    "icons": {
             "16": "images/icon16.png",
             "48": "images/icon48.png",
             "128": "images/icon128.png"
-        }
+    },
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup/popup.html"
     },
     "content_scripts": [
         {
@@ -27,8 +35,11 @@
                 "background.js"
             ],
             "matches": [
-                "*://vk.com/audio?*"
+                "*://vk.com/*"
             ]
         }
-    ]
+    ],
+  
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'",
+    "web_accessible_resources": [ "scripts/*"]
 }
