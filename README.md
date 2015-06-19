@@ -8,9 +8,9 @@ Chrome extension for VK.COM what allow to get list of mp3 URLs on the "Search pa
 </ul>
 
 MAC OS X<br>
-<code>
-file_name=<FILE NAME HERE> && cur_path=$(pwd) split -l 50 $file_name PARTDEF && find . -name "PARTDEF*" -print0 | xargs -0 -I f osascript -e 'tell application "Terminal" to do script "cd $cur_path && cat f | while read CMD; do curl -O $CMD; done; rm f;"' 
-</code>
+''''
+file_name=newMP3List.txt && cur_path=$(pwd) && split -l 50 $file_name PART && find . -name "PART*" -print0 | xargs -0 -I f osascript -e "tell application \"Terminal\" to do script \"cd $cur_path && cat f | while read CMD; do curl -O \\\"\$CMD\\\"; done; rm f;\""
+''''
 <br><br>Linux<br>
 <code>
 cat <FILE NAME HERE> | while read CMD; do curl -O $CMD; done;
