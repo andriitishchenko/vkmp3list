@@ -4,7 +4,8 @@ Chrome extension for VK.COM what allow to get list of mp3 URLs on the "Search pa
 <ul>
 	<li>1. Get urls list</li>
 	<li>2. Download files from list</li>
-	<li>3. Have fun :)</li>
+	<li>3. Check filename lenth.</li>
+	<li>4. Have fun :)</li>
 </ul>
 
 MAC OS X<br>
