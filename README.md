@@ -13,7 +13,9 @@ file_name=newMP3List.txt && cur_path=$(pwd) && split -l 50 $file_name PART && fi
 ````
 <br><br>Linux<br>
 <code>
-cat <FILE NAME HERE> | while read CMD; do curl -O $CMD; done;
+````
+cat newMP3List.txt | while read CMD; do curl -O $CMD; done;
+````
 </code>
 <br><br>Windows<br> 
 use any of Downloader  wich allow use list of files<br>
