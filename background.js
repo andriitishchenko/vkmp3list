@@ -74,14 +74,52 @@ setTimeout(function(){
 			vkmp3file_download(link,song);
 		}
 
-		var dButton=document.createElement('div');
-		    dButton.setAttribute("id", "dButton");    
+		function ConstructorMenuItem(id, title,functionName)
+		{
+			var item=document.createElement('div');
+		    item.setAttribute("id", id);   
+		    item.setAttribute("class", "ui_rmenu_item"); 
 		
-		$("<div/>", {
+			var obj = $("<div/>", {
 		      "class": "label",
-		      text: "Download list",
-		      click: function(){
+		      text: title,
+		      click: functionName
+			}).appendTo(item);
+			$("div#narrow_column>.ui_rmenu").append(item);
+			return obj;
+		}
 
+
+		//ConstructorMenuItem("dButton_download_list","Download list",download_list);
+		ConstructorMenuItem("dButton_hq_add","Add HQ to Library",add_all_hq_to_library);
+		ConstructorMenuItem("dButton_hq_only","Show HQ only",hide_non_hq_items);
+		ConstructorMenuItem("test","testpos",testpos);
+
+
+		function testpos(){
+
+			var data = {
+				"act":"reload_audio",
+				"al":1,
+				"ids":"30856798_157942874"
+			} ;
+
+			$.ajax({
+			  url:"al_audio.php",
+			  type:"POST",
+			  data:data,
+			  contentType:"application/x-www-form-urlencoded",
+			  //dataType:"json",
+			  success: function(){
+			    
+			  }
+			})
+
+			
+		}
+
+
+		function download_list(){
 					var ttFLNMList = [];
 					var ttFLNMListUnique = [];
 					$("div.audio[id^='audio']").each(function(){
@@ -101,9 +139,24 @@ setTimeout(function(){
 					};
 					vkmp3list_download(tmpData,filename);
 		      }
-		}).appendTo(dButton);
 
-		$("div#album_filters").append(dButton);
+		function hide_non_hq_items(){
+			$("._audio_row:not(.hq)").remove();
+		}
+
+
+		function add_all_hq_to_library(){
+			$("div.audio_hq_label","div.audio_row.hq").parent( "div.audio_duration_wrap").children("div.audio_acts").children("div#add").each(function(index) { 
+			 var self= this; 
+			 setTimeout(function(){ 
+			  //console.log("click"); 
+			  self.click(); 
+			  }, index*3000); 
+			}); 
+		}
+
+
+
 
 		var vkmp3listdlbtnSwitch = 0;
 
